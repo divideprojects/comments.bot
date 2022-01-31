@@ -33,7 +33,7 @@ requests = "^2.25.1"
 "Community" = "https://t.me/DivideProjects"
 
 [tool.poetry.dev-dependencies]
-black = "^21.5b2"
+black = "^22.1"
 isort = "^5.8.0"
 pre-commit = "^2.13.0"
 pyclean = "^2.0.0"
