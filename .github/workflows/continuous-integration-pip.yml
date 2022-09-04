@@ -35,9 +35,7 @@ jobs:
 
       - name: Install dependencies & Configuring
         run: |
-          pip3 install --upgrade pip setuptools wheel
-          pip3 install --upgrade poetry
-          poetry config virtualenvs.create false
+          pip install --upgrade pip setuptools wheel poetry
           poetry install
 
   push-to-pypi:
