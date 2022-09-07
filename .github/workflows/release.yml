@@ -116,7 +116,9 @@ jobs:
 
   push-to-pypi:
     name: Push to PyPI
-    needs: release
+    needs:
+     - release
+     - get-repo-info
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
