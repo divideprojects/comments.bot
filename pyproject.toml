@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "comments.bot"
-version = "1.0.2"
+version = "1.0.4"
 description = "A simple API wrapper for the comments.bot"
 authors = ["Divkix <techdroidroot@gmail.com>"]
 license = "MIT"

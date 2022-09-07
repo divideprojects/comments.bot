@@ -28,14 +28,15 @@ jobs:
   update-version:
     name: Update package version
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'
     needs: pre-commit
     steps:
       - name: Checkout
+        if: github.event_name == 'workflow_dispatch'
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Bump poetry package
+        if: github.event_name == 'workflow_dispatch'
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install --upgrade poetry
@@ -78,6 +79,8 @@ jobs:
         os: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -95,6 +98,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Publish python poetry package
         uses: JRubics/poetry-publish@v1.13
         with:
@@ -109,7 +114,9 @@ jobs:
       - get-repo-info
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
